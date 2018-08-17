@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaGame - @ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div style="background:url(../image/banner.jpg) no-repeat;width:%100px;height:95px;padding:14px 0 0 372px">
+            <div class="col-md-3">
+                <img src="~/image/logo.png" width=66px height=75px class="img-rounded">
+                </div>
+                <div class="col-md-3" style="margin-left:425px; margin-top:20px">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-custom" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+       
+            <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">AdaGame</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">@Html.ActionLink(WebUI.Resources.dil.AnaSayfa, "Index", "Home")</li>
+                            <li class="dropdown">
+                                <a href="@Url.Action("PS4Oyun", "Home")" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>PLAYSTATION 4</strong><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown">
+                                        <a href="@Url.Action("PS4Oyun", "Home")">@WebUI.Resources.dil.OyunPs4</a>
+                                    </li>
+                                    <li><a href="@Url.Action("PSKonsol", "Home")">@WebUI.Resources.dil.KonsolPs4</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class=" dropdown">
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>XBOX ONE</strong><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("XBOneOyun", "Home")">@WebUI.Resources.dil.OyunXbox1</a></li>
+                                    <li><a href="@Url.Action("XBKonsol", "Home")">@WebUI.Resources.dil.KonsolXbox1</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>PC</strong> <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("PCOyun", "Home")">@WebUI.Resources.dil.OyunPC</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("Kupon", "Home")"><strong>@WebUI.Resources.dil.Kuponlar</strong></a></li>
+                            <li><a href="@Url.Action("Aksesuar", "Home")"><strong>@WebUI.Resources.dil.Aksesuarlar</strong></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+                            @Html.Partial("_LoginPartial")
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+    
+            </div>
+        
+
+    <ul class="nav navbar-nav navbar-right">
+        
+    </ul>
+    <div class="container body-content" style="padding-top:10px">
+        
+
+        @RenderBody()
+    </div>
+            <footer>
+                <div class="navbar navbar-inverse navbar-bottom" role="navigation">
+                    
+                        <div class="navbar-header" style="padding-left:150px;">
+
+
+                        </div>
+                        <ul class="nav navbar-nav navbar-right padsoc">
+                            <a href="//www.facebook.com/adagame"><img src="~/image/social/facebook.png" alt="AdaGame" title="AdaGame" width="40px" height="40px" class="img"></a>&nbsp&nbsp
+                            <a href="//www.twitter.com/adagame"><img src="~/image/social/twitter.png" alt="AdaGame" title="AdaGame" width="40px" height="40px" class="img"></a>&nbsp&nbsp
+                            <a href="//www.instagram.com/adagame"><img src="~/image/social/instagram.png" alt="AdaGame" title="AdaGame" width="40px" height="40px" class="img"></a>&nbsp&nbsp
+                            <a href="//www.google.com/adagame"><img src="~/image/social/googleplus.png" alt="AdaGame" title="AdaGame" width="40px" height="40px" class="img"></a>&nbsp&nbsp
+                            <a href="//www.youtube.com/adagame"><img src="~/image/social/youtube.png" alt="AdaGame" title="AdaGame" width="40px" height="40px" class="img"></a>
+
+
+                        </ul>
+                    
+                </div>
+
+                <div id="footer">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading panel-heading-custom">
+                                        <h3 class="panel-title foot-header blockhali"><span class="glyphicon glyphicon-briefcase"></span> @WebUI.Resources.dil.Kurumsal
+                                    </div>
+                                    <div style="text-align:center">
+                                        <div class="media pad5">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("About", "Kurumsal")">@WebUI.Resources.dil.Hakkimizda</a></strong></h5>
+                                        </div>
+                                        <div class="media">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("KurumsalSatis", "Kurumsal")">@WebUI.Resources.dil.KurumsalSatis</a></strong></h5>
+                                        </div>
+                                        <div class="media">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("InsanKaynaklari", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.InsanKaynaklari</a></strong></h5>
+                                        </div>
+                                        <div class="media padbot5">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("Contact", "Kurumsal")">@WebUI.Resources.dil.Iletisim</a></strong></h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div><!--/col-sm-3-->
+                            <div class="col-sm-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading panel-heading-custom">
+                                        <h3 class="panel-title foot-header blockhali"><span class="glyphicon glyphicon-wrench"></span> @WebUI.Resources.dil.Destek
+                                    </div>
+                                    <div style="text-align:center">
+                                        <div class="media pad5">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("eTicaret", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.eticaret</a></strong></h5>
+                                        </div>
+                                        <div class="media">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("AlisverisKlavuzu", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.AlisverisKlavuz</a></strong></h5>
+                                        </div>
+                                        <div class="media">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("Contact", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.Destek</a></strong></h5>
+                                        </div>
+                                        <div class="media">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("GizlilikTaahhudu", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.GizlilikTaahhudu</a></strong></h5>
+                                        </div>
+                                        <div class="media">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("UrunIadeSartlari", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.UrunIade</a></strong></h5>
+                                        </div>
+                                        <div class="media padbot5">
+                                            <h6 class="media-heading"><strong><a href="@Url.Action("KargoSorgulama", "Kurumsal")" style='text-decoration:none;'>@WebUI.Resources.dil.KargoTakip</a></strong></h5>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading panel-heading-custom">
+                                        <h3 class="panel-title foot-header blockhali"><span class="glyphicon glyphicon-th"></span> @WebUI.Resources.dil.Markalar
+                                    </div>
+                                    <div style="text-align:center">
+                                        <img src="~/image/markalar/activision.png" height="50">
+                                        <img src="~/image/markalar/bandai.png" height="50" alt="bandai">
+                                        <img src="~/image/markalar/bethesda.png" height="50" alt="bethesda">
+                                        <img src="~/image/markalar/capcom.png" height="50" alt="capcom">
+                                        <img src="~/image/markalar/disney.png" height="50" alt="disney">
+                                        <img src="~/image/markalar/ea.png" height="50" alt="ea">
+                                        <img src="~/image/markalar/konami.png" height="50" alt="konami">
+                                        <img src="~/image/markalar/microsoft.png" height="50" alt="microsoft">
+                                        <img src="~/image/markalar/razer.png" height="50" alt="razer">
+                                        <img src="~/image/markalar/sega.png" height="50" alt="sega">
+                                        <img src="~/image/markalar/squareenix.png" height="50" alt="squareenix">
+                                        <img src="~/image/markalar/t2.png" height="50" alt="t2">
+                                        <img src="~/image/markalar/thrustmaster.png" height="50" alt="thrustmaster">
+                                        <img src="~/image/markalar/ubisoft.png" height="50" alt="ubisoft">
+
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div><!--/row-->
+                        <div class="row">
+                            <div id="bottom-footer">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <a href="//www.axess.com.tr"><img src="~/image/kart/axess.png" width="62px" height="28px" title="AXESS"></a>
+                                        <a href="//www.bonus.com.tr"><img src="~/image/kart/bonus.png" width="75px" height="28px" title="BONUS"></a>
+                                        <a href="//www.maximum.com.tr"><img src="~/image/kart/maximum.png" width="65px" height="28px" title="MAXİMUM"></a>
+                                        <a href="//www.worldcard.com.tr"><img src="~/image/kart/world.png" width="70px" height="28px" title="world"></a>
+                                        <a href="//bkmexpress.com.tr"><img src="~/image/kart/bkm.png" width="80px" height="28px" title="BKM"></a>
+                                        <a href="//www.mastercard.com/tr/consumer"><img src="~/image/kart/mastercard.png" width="40px" height="28px" title="MASTER CARD"></a>
+                                        <a href="//www.visa.com.tr"><img src="~/image/kart/visa.png" width="55px" height="28px" title="VISA"></a>
+                                        <a href="//www.verisign.com"><img src="~/image/kart/verisign.png" width="68px" height="28px" title="VERI SIGN"></a>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <span class="fa fa-phone-square icon_buyut pull-left"></span>
+                                        <div class="pull-left">
+                                            <span class="black">&nbsp +90 264 264 00 00 <strong><p>&nbsp&nbsp&nbsp @WebUI.Resources.dil.CagriMerkezi</p></strong></span>
+                                        </div>
+                                    </div>
+                                </div><!--/row 2-->
+                                <div class="row" id="final-footer">
+                                    <div class="col-sm-4 text-center">
+                                        <p>
+                                        </p>Copyright © 2016 AdaGame Serdivan / SAKARYA 54050 TURKEY
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

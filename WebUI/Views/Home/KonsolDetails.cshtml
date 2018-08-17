@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = Model.KonsolAdi;
+}
+
+@model  WebUI.Models.Data.Konsol
+
+<div class="panel panel-default">
+    <div class="panel-heading panel-heading-custom">
+        <h3 class="panel-title">
+            <span class="glyphicon glyphicon-fire"></span>
+            <strong>@Model.KonsolAdi</strong>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="item-container">
+            <div class="container">
+                <div class="col-md-5">
+                    <div class="product col-md-9 service-image-left">
+                        <center>
+                            <img id="item-display" src="data:image/png;base64,@System.Convert.ToBase64String(Model.KonsolFoto)" style="margin-top:10px; margin-left:15px;" alt="Model.KonsolAdi"></img>
+                        </center>
+                    </div>
+
+                </div>
+
+                <div class="col-md-7">
+                    <div class="product-title"><strong>@Model.KonsolAdi</strong></div>
+                    <p class="product-desc">
+                    @if (Model.Tip == 1)
+                    {
+                        <p>PlayStation Konsol</p>
+
+                    }
+                    else
+                    {
+                        <p>Xbox One Konsol</p>
+                    }
+
+                </div>
+                <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+                <hr>
+                <div class="product-price">@Model.Fiyat <i class="fa fa-try" aria-hidden="true"></i></div>
+                <div class="product-stock">Stokta</div>
+                <hr>
+                <div class="btn-group cart">
+                    <button type="button" class="btn btn-success">
+                        Sepete Ekle
+                    </button>
+                </div>
+                <div class="btn-group wishlist">
+                    <button type="button" class="btn btn-danger">
+                        Satın Al
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="col-md-12 product-info">
+            <ul id="myTab" class="nav nav-tabs nav_tabs">
+
+                <li class="active" style="border-bottom:0px"><a href="#service-one" data-toggle="tab"><strong>Açıklama</strong></a></li>
+                <li style="border-bottom:0px"><a href="#service-two" style="border-bottom:0px" data-toggle="tab">Ürün Bilgisi</a></li>
+                <li style="border-bottom:0px"><a href="#service-three" style="border-bottom:0px" data-toggle="tab">Yorumlar</a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="service-one">
+
+                    <section class="container product-info">
+                        <div style="width:1000px;overflow:auto">
+                            <strong>
+                    @if (Model.Tip == 1)
+                    {
+                        <p>     PlayStation 4 Pro (PS4 Pro)
+                        “Dünyanın en güçlü konsolu” olarak tanıtılan ve uzun süredir merakla beklenen PS4 Pro, sonunda oyunseverlerin beğenisine sunuldu. 2013 yılında Sony tarafından piyasaya çıkarılan PS4’ün geliştirilmiş versiyonu olarak kabul edilen PS4 Pro, yüksek güçlü donanım ile birçok yeni özelliği de beraberinde getiriyor. Tecrübeyi inanılmaz bir ayrıntı seviyesine ve gerçekçiliğe taşıyor. Üstelik PS4 Pro Türkiye çıkış tarihi de belli oldu.
+                        Sony tarafından yapılan açıklamaya göre dünya ile eş zamanlı olarak Türkiye’de de PS4 Pro, 10 Kasım’da satışa sunulacak. PS4 Pro fiyatı ise ülkelere göre farklılıklar gösteriyor. ABD’de 399 dolar, Avrupa’da 399 euro olarak belirlenirken PS4 Pro Türkiye fiyatı ise 1699 TL olarak belirlendi.
+                        Neslinin En Yenisi, En Çekicisi
+                        Önceki PlayStation modellerinde de bulunan yatay gövde tasarımını devam ettiren PS4 Pro, güç ve sağlamlığı simgeleyen üç blok katman gövdesini de koruyor. Paylaşımlı oyun, uzaktan oynatma, geliştirilmiş wifi ile hızlı ve sorunsuz bağlantı seçenekleri sunuluyor. Bir önceki modele göre 1.2 kg daha ağır olan ve yaklaşık 3.3 kg olarak tasarlanan PS4 Pro, yeni bir konsol nesli olmasa da PS4 ile bir sonraki nesil arasında değerli bir köprü işlevi üstleniyor.
+                        Yeni Bir Çağa Açılan Kapı
+                        Sony’nin 4K teknolojisini konsollarla buluşturan PS4 Pro özellikleri ile yeni bir dönem başlatıyor denilebilir; çünkü ilk kez bir oyun konsolu 4K çözünürlüğü destekliyor. Full HD görüntü kalitesinin 4 katı anlamına gelen 4K ile uyumluluk için de PS4 Pro için çıkan bütün oyunlar 4K’yı destekleyecek. Kısacası PS4 Pro oyunları için görüntü kalitesi ve ayrıntıların çeşitliliği bakımından altın çağın kapılarıaçılıyor.
+                        PlayStation 4 Pro Kutu İçeriği
+                        4K ve VR Teknolojileri
+                        PS4 Pro’nun, 4K teknolojisi uyumu sayesinde yüksek çözünürlük, renkli ve canlı grafikler ile oyun keyfi zirveye taşınıyor. Tabii sadece 4K destekli TV’ler için mükemmel görüntü kalitesi sağlamıyor. Aynı zamanda 1080p TV’lere de HDR teknolojisi ile daha keskin, daha derin, daha karşı konulmaz görüntü özellikleri sunuyor. VR yani sanal gerçeklik gözlüğü de PS4 Pro ile oyunların değişmez bir parçasına dönüşüyor. Saniyede 60 kare, 360 derece görüş yeteneği, 41 özel oyun ve tarifsiz bir his… PS4 Pro ile VR teknolojisinin birleşiminden doğan gerçeklik, sizi yepyeni bir dünyanın üyesi yapıyor.
+                        Yeni Oyunlar, Güncellemeler, Yamalar
+                        1 TB hard disk ile oldukça geniş bir depolama alanı sunan PS4 Pro kalitesini daha iyi yansıtmak için hemen hemen bütün güncel PlayStation oyunlarının yeni konsola uyumlu yamaları ve güncellemeleri çıkacak. Uncharted 4, Battlezone, Fall Out 4, Spider Man, Andromeda, Battlefield 1, Fifa 17, Call of Duty: Modern Warfare Remastered, Rise of the Tomb Raider, The Witness gibi oyunlar da yeni cihaza tam uyumlu olarak oyunseverlerle buluşturulacak.</p>
+                    }
+                    else
+                    {
+                        <p>Yeni Xbox One S ile tanışın. 4K Ultra HD video, HDR görüntü, %40 daha küçük konsol ve aerodinamik kumanda.
+                            Xbox One S konsol, 500 GB depolama alanı (dahili), Xbox Kablosuz Kumanda (3.5mm kulaklık jakı ile), HDMI kablo, güç kablosu içerir.
+ 
+                            Boyutu size yanıltmasın: dahili güç kaynağı ve 500 GB dahili depolama alanı ile Xbox One S şimdiye kadarki en gelişmiş Xbox.
+                            Netflix ile 4K videoları stream yapın, UHD Blu-ray™ filmleri göz kamaştırıcı 4K Ultra HD kalitesiyle izleyin.
+ 
+                            HDR görüntü ile oyun ve videolardaki daha zengin, daha parlak renkleri deneyimleyin.
+ 
+                            Geliştirilmiş konfor ile yeni Xbox Kablosuz Kumandayı hissedin. Dokulu kavrama yüzeyi ve Bluetooth® teknolojisi ile birlikte.</p>
+                    }</strong>
+                        </div>                       
+                    </section>
+
+                </div>
+                <div class="tab-pane fade" id="service-two">
+
+                    <section class="container"></section>
+
+                </div>
+                <div class="tab-pane fade" id="service-three">
+
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Kuponlar";
+}
+
+@model List<WebUI.Models.Data.Kupon>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Admin Menü</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li style="border-bottom:0px"><a href="@Url.Action("Index", "Admin")"><i class="fa fa-cog icon_buyut2" aria-hidden="true"></i> Admin</a></li>
+                        <li style="border-bottom:3px"><a href="@Url.Action("Slider", "Admin")"><i class="fa fa-sliders icon_buyut2" aria-hidden="true"></i> Slider</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Urun", "Admin")"><i class="fa fa-shopping-bag icon_buyut2" aria-hidden="true"></i> Ürünler</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Aksesuar", "Admin")"><i class="fa fa-keyboard-o icon_buyut2" aria-hidden="true"></i> Aksesuarlar</a></li>
+                        <li class="active" style="border-bottom:0px"><a href="@Url.Action("Kupon", "Admin")"><i class="fa fa-book icon_buyut2" aria-hidden="true"></i> Kuponlar</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Konsol", "Admin")"><i class="fa fa-gamepad icon_buyut2" aria-hidden="true"></i> Konsollar</a></li>
+                       @if (this.User.IsInRole("SuperAdmin"))
+                       {
+                        <li style="border-bottom:0px"><a href="@Url.Action("Index", "RolYonetim")"><i class="fa fa-user-circle icon_buyut2" aria-hidden="true"></i> Rol Yonetimi</a></li>
+                       }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Kuponlar</h4>
+                    <a href="/Admin/KuponEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Slide" style="margin-top:-33px;">Yeni Kupon</a>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">Fotoğraf</th>
+                                <th class="col-md-9">Kupon Adi</th>
+                                <th class="col-md-2">Fiyat</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @if (item.KuponFoto == null)
+                                    {
+                                        <td><img style='width:100%; height:auto; border:solid 1px #cccccc;' src="~/Content/images/resimyok.png" alt="" /></td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <img style='width:100%; height:auto; border:solid 1px #cccccc;' src="data:image/png;base64,@System.Convert.ToBase64String(item.KuponFoto)" />
+                                        </td>
+                                    }
+                                    <td>@item.KuponAd</td>
+                                    <td>@item.KuponFiyat <i class="fa fa-try" aria-hidden="true"></i></td>
+                                    <td><a href='/Admin/KuponDuzenle?KuponID=@item.ID' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a></td>
+                                    <td>@Html.ActionLink("Sil", "/KuponSil", new { KuponID = item.ID }, new { @class = "btn btn-xs btn-danger tooltips", onclick = "return confirm('Silmek İstediğinize Emin Misinizin ?');" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,104 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
+            <li>
+                @Html.ActionLink("Merhaba " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { style = "padding-bottom:15px;padding-top:5px;", title = "Manage" })
+            </li>
+            <a href="javascript:document.getElementById('logoutForm').submit()" style="padding-top: 10px; padding-bottom: 10px;"><button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Çıkış Yap</button></a>
+            @if (this.User.IsInRole("Admin") | this.User.IsInRole("SuperAdmin"))
+            {
+                <a href="@Url.Action("Index", "Admin")" style="padding-bottom:10px; padding-top:10px;"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span>&nbsp;@WebUI.Resources.dil.Admin</button></a>
+            }
+        </ul>
+    }
+            <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-top: 5px; padding-bottom: 15px;"> <span class="glyphicon glyphicon-shopping-cart"></span> 3 - Ürun<span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu" style="background:rgb(255,255,255)">
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="~/Content/images/resimyok.png" alt="" style="height:50px; width:50px;" />
+                                    <span class="item-info">
+                                        <span>Urun Adi</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="~/Content/images/resimyok.png" alt="" style="height:50px; width:50px;" />
+                                    <span class="item-info">
+                                        <span>Urun Adi</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="~/Content/images/resimyok.png" alt="" style="height:50px; width:50px;" />
+                                    <span class="item-info">
+                                        <span>Urun Adi</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a class="text-center" href="" style="color:#000;">Sepeti Görüntüle</a></li>
+                    </ul>
+                </li>
+                </ul>
+            
+    
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right" style="padding-top: 10px">
+        <a href="@Url.Action("Register", "Account")"><button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-user"></span>&nbsp;@WebUI.Resources.dil.KayitOl</button></a>
+        <a href="@Url.Action("Login", "Account")"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-in"></span>&nbsp;@WebUI.Resources.dil.GirisYap</button></a>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-flag"></span>&nbsp;Language <span class="caret"></span></button>
+             <ul class="dropdown-menu">
+            @if (HttpContext.Current.Session["Culture"].ToString() == "tr")
+            {
+                <li><a href="@Url.Action("ChangeCulture", "Home", new { dil = "en", returnurl = this.Request.RawUrl }, null)"><img src="~/image/en.jpg" width="25px" height="18px" class="img"> English</a></li>
+                <li><a href="@Url.Action("ChangeCulture", "Home", new { dil = "de", returnurl = this.Request.RawUrl }, null)"><img src="~/image/de.jpg" width="25px" height="18px" class="img"> Deutsch</a></li>
+            }
+            else if(HttpContext.Current.Session["Culture"].ToString() == "en")
+            {
+                <li><a href="@Url.Action("ChangeCulture", "Home", new { dil = "tr", returnurl = this.Request.RawUrl }, null)"><img src="~/image/tr.jpg" width="25px" height="18px" class="img"> Türkçe</a></li>
+                <li><a href="@Url.Action("ChangeCulture", "Home", new { dil = "de", returnurl = this.Request.RawUrl }, null)"><img src="~/image/de.jpg" width="25px" height="18px" class="img"> Deutsch</a></li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("ChangeCulture", "Home", new { dil = "tr", returnurl = this.Request.RawUrl }, null)"><img src="~/image/tr.jpg" width="25px" height="18px" class="img"> Türkçe</a></li>
+                <li><a href="@Url.Action("ChangeCulture", "Home", new { dil = "en", returnurl = this.Request.RawUrl }, null)"><img src="~/image/en.jpg" width="25px" height="18px" class="img"> English</a></li>
+            }
+               
+        </div>
+        
+
+  
+    </ul>
+   
+}

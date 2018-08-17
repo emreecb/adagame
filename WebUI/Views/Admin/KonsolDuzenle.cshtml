@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "KonsolDuzenle";
+}
+
+@model WebUI.Models.Data.Konsol
+
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("KonsolDuzenle", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m => m.ID)
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Ürün Düzenle</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    @if (Model.KonsolFoto == null)
+                                    {
+                                        <img style='width:200px; height:200px; border:solid 1px #cccccc;' src="~/Content/images/resimyok.png" alt="" />
+                                    }
+                                    else
+                                    {
+                                        <img style='width:50%; height:auto; border:solid 1px #cccccc;' src="data:image/png;base64,@System.Convert.ToBase64String(Model.KonsolFoto)" alt="" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="col-sm-2 control-label">Fotoğraf</label>
+                                <div class="col-sm-6">
+                                    <input type="file" name="file" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="col-sm-2 control-label">Ürün Adı</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBoxFor(m => m.KonsolAdi, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="col-sm-2 control-label">Fiyat</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="col-sm-2 control-label">Ürün Tipi</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownListFor(m => m.Tip, new List<SelectListItem>
+                                     {
+                                        new SelectListItem{ Text="Seçiniz", Value = "0" },
+                                        new SelectListItem{ Text="PlayStation", Value = "1" },
+                                        new SelectListItem{ Text="XBOX", Value = "2" },
+                                     }, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <div class="btn-toolbar pull-right">
+                                <input type="submit" value="Güncelle" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

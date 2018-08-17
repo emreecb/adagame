@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Admin Menü</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active" style="border-bottom:0px"><a href="@Url.Action("Index", "Admin")"><i class="fa fa-cog icon_buyut2" aria-hidden="true"></i> Admin</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Slider", "Admin")"><i class="fa fa-sliders icon_buyut2" aria-hidden="true"></i> Slider</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Urun", "Admin")"><i class="fa fa-shopping-bag icon_buyut2" aria-hidden="true"></i> Ürünler</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Aksesuar", "Admin")"><i class="fa fa-keyboard-o icon_buyut2" aria-hidden="true"></i> Aksesuarlar</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Kupon", "Admin")"><i class="fa fa-book icon_buyut2" aria-hidden="true"></i> Kuponlar</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Konsol", "Admin")"><i class="fa fa-gamepad icon_buyut2" aria-hidden="true"></i> Konsollar</a></li>
+                            @if (this.User.IsInRole("SuperAdmin"))
+                            {
+                                <li style="border-bottom:0px"><a href="@Url.Action("Index", "RolYonetim")"><i class="fa fa-user-circle icon_buyut2" aria-hidden="true"></i> Rol Yonetimi</a></li>
+                            }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-custom">
+                        <h4>Admin Duyuru</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <strong>AdaGame Admin Kontrol Paneli</strong>
+                            <br />
+                            -Slider
+                            <br/>
+                            -Ürünler
+                            <br />
+                            -Aksesuarlar
+                            <br />
+                            -Kuponlar
+                            <br />
+                            -Konsollar
+                            <br />
+                            -Rol Yönetimi (<i>SuperAdmin Görevi</i>)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

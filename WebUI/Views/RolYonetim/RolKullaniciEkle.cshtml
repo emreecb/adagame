@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Konsol Ekle";
+}
+
+@model WebUI.Models.RolKullaniciEkle
+
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("RolKullaniciEkle", "RolYonetim", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Yeni Ürün</h4>
+                    <a href="/RolYonetim/Index" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Slide" style="margin-top:-33px;">Tümü</a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-sm-2 control-label">Kullanıcı Adı</label>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-sm-2 control-label">Rol Tipi</label>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(m => m.RolAdi, new List<SelectListItem>
+                                         {
+                                            new SelectListItem{ Text="Seçiniz", Value = "User" },
+                                            new SelectListItem{ Text="Super Admin", Value = "SuperAdmin" },
+                                            new SelectListItem{ Text="Admin", Value = "Admin" },
+                                            new SelectListItem{ Text="User", Value = "User" },
+                                         }, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <div class="btn-toolbar pull-right">
+                                <input type="submit" value="Kaydet" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Roller";
+}
+
+@model List<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Admin Menü</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li style="border-bottom:0px"><a href="@Url.Action("Index", "Admin")"><i class="fa fa-cog icon_buyut2" aria-hidden="true"></i> Admin</a></li>
+                        <li style="border-bottom:3px"><a href="@Url.Action("Slider", "Admin")"><i class="fa fa-sliders icon_buyut2" aria-hidden="true"></i> Slider</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Urun", "Admin")"><i class="fa fa-shopping-bag icon_buyut2" aria-hidden="true"></i> Ürünler</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Aksesuar", "Admin")"><i class="fa fa-keyboard-o icon_buyut2" aria-hidden="true"></i> Aksesuarlar</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Kupon", "Admin")"><i class="fa fa-book icon_buyut2" aria-hidden="true"></i> Kuponlar</a></li>
+                        <li style="border-bottom:0px"><a href="@Url.Action("Konsol", "Admin")"><i class="fa fa-gamepad icon_buyut2" aria-hidden="true"></i> Konsollar</a></li>
+                        <li class="active" style="border-bottom:0px"><a href="@Url.Action("Index", "RolYonetim")"><i class="fa fa-user-circle icon_buyut2" aria-hidden="true"></i> Rol Yonetimi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Rol Yonetimi</h4>
+                    <a href="/RolYonetim/RolEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Slide" style="margin-right:135px;margin-top:-33px;">Yeni Rol Ekle</a>
+                    <a href="/RolYonetim/RolKullaniciEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Slide" style="margin-top:-33px;">Kullanıcıya Rol Ekle</a>
+
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-md-7">Rol Adı</th>
+                                <th class="col-md-5">Sayısı</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Users.Count</td>
+                               </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

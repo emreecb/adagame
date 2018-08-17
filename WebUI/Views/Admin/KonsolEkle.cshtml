@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Konsol Ekle";
+}
+
+@model WebUI.Models.Data.Konsol
+
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("KonsolEkle", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom">
+                    <h4>Yeni Ürün</h4>
+                    <a href="/Admin/Konsol" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Slide" style="margin-top:-33px;">Tümü</a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-sm-2 control-label">Fotoğraf</label>
+                                    <div class="col-sm-6">
+                                        <input type="file" name="file" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-sm-2 control-label">Ürün Adı</label>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.KonsolAdi, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-sm-2 control-label">Fiyat</label>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-sm-2 control-label">Ürün Tipi</label>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(m => m.Tip, new List<SelectListItem>
+                                         {
+                                            new SelectListItem{ Text="Seçiniz", Value = "0" },
+                                            new SelectListItem{ Text="PlayStation", Value = "1" },
+                                            new SelectListItem{ Text="XBOX", Value = "2" },
+                                         }, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <div class="btn-toolbar pull-right">
+                                <input type="submit" value="Kaydet" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
